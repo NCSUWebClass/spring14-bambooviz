@@ -1,20 +1,30 @@
 /* Cal-HeatMap CSS */
 
-html {
-	background-image:url('img.png');
-	background-color:#cccccc;
-	text-align: center;
-}
 
+html { 
+  	background: url(img.png) no-repeat center center fixed; 
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+  	background-size: cover;
+  	text-align: center;
+}
 #title {
 	text-align: center;
 
+}
+
+#graphback {
+	
 }
 
 p {
 	font-family: sans-serif;
 	font-size:2em;
 	color: #000000;
+}
+body {
+  font: 10px sans-serif;
 }
 
 .cal-heatmap-container {
@@ -172,12 +182,23 @@ text.now
     border-width: 6px 6px 0;
     border-top-color: black;
 }
-.y_2014.m_1 .domain-background {
+.domain-background {
 	fill: transparent;
 }
-.y_2013.m_12 .domain-background {
-	fill: transparent;
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
 }
-.y_2014.m_2 .domain-background {
-	fill: transparent;
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
 }
