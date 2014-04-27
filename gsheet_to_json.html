@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>Convert Gsheet to json</title>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript">
+			/*	Link to the published gsheet in the json format
+			*	and a function to create separated json
+			*	variables.
+			*/
+			$.getJSON("https://spreadsheets.google.com/feeds/list/1Wcaree3IGGrcaQR5XDo-7JB6TIv6XlYVFqbGelirooo/od6/public/values?alt=json",
+				function(data) {
+					var pain = "{\n";
+					var fatigue = "{\n";
+					var mobility = "{\n";
+					var brainfog = "{\n";
+
+					for (var i = 0, ii = data.feed.entry.length-1; i < ii; i++) {
+						pain += "\"" + data.feed.entry[i].gsx$a.$t + "\":" + data.feed.entry[i].gsx$b.$t + ",\n";
+						fatigue += "\"" + data.feed.entry[i].gsx$a.$t + "\":" + data.feed.entry[i].gsx$c.$t + ",\n";
+						mobility += "\"" + data.feed.entry[i].gsx$a.$t + "\":" + data.feed.entry[i].gsx$d.$t + ",\n";
+						brainfog += "\"" + data.feed.entry[i].gsx$a.$t + "\":" + data.feed.entry[i].gsx$e.$t + ",\n";
+					}
+
+					pain += "\"" + data.feed.entry[i].gsx$a.$t + "\":" + data.feed.entry[i].gsx$b.$t + "\n}";
+					fatigue += "\"" + data.feed.entry[i].gsx$a.$t + "\":" + data.feed.entry[i].gsx$c.$t + "\n}";
+					mobility += "\"" + data.feed.entry[i].gsx$a.$t + "\":" + data.feed.entry[i].gsx$d.$t + "\n}";
+					brainfog += "\"" + data.feed.entry[i].gsx$a.$t + "\":" + data.feed.entry[i].gsx$e.$t + "\n}";
+
+					console.log (pain);
+					console.log (fatigue);
+					console.log (mobility);
+					console.log (brainfog);
+			});
+		</script>
+	</head>
+	<body>
+		<p>testing...</p>
+	</body>
+</html>
